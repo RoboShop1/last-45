@@ -10,5 +10,8 @@
     - name: replace content in file
       ansible.builtin.replace:
         path: /tmp/replace.file
-        regexp: "linux"
+        regexp: "^linux"
         replace: "LINUX"
+
+
+ #
