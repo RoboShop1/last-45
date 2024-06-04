@@ -16,7 +16,7 @@
     - name: lineinfile task
       ansible.builtin.lineinfile:
         path: /tmp/lineinfile.file
-        regexp: '^linux linux which one you choose.'
+        search_string: 'linux'
         line: 'LINUX'
 
 
