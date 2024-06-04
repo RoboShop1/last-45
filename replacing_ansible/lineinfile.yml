@@ -16,7 +16,7 @@
     - name: lineinfile task
       ansible.builtin.lineinfile:
         path: /tmp/lineinfile.file
-        regexp: '^learn'
+        regexp: '^linux'
         line: 'HELLLLLLLLLLLLLLLL'
 
 
