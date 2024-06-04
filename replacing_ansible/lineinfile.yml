@@ -11,3 +11,4 @@
       ansible.builtin.lineinfile:
         path:  /tmp/lineinfile.file
         line: 'Adding new line to a file'
+        insertafter: '^learn '
