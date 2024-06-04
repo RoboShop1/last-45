@@ -1,0 +1,14 @@
+- name: Replace module in Ansible
+  hosts: localhost
+  gather_facts: false
+  tasks:
+    - name: copy file
+      ansible.builtin.copy:
+        src: replace.file
+        dest: /tmp/replace.file
+
+    - name: replace content in file
+      ansible.builtin.replace:
+        path: /tmp/replace.file
+        regexp: "linux"
+        replace: "LINUX"
