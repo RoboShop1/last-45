@@ -1,0 +1,13 @@
+- name: Replace module in Ansible
+  hosts: localhost
+  gather_facts: false
+  tasks:
+    - name: copy file
+      ansible.builtin.copy:
+        src: replace.file
+        dest: /tmp/lineinfile.file
+
+    - name: lineinfile task
+      ansible.builtin.lineinfile:
+        path:  /tmp/lineinfile.file
+        line: 'Adding new line to a file'
