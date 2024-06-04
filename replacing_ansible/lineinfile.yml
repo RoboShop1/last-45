@@ -17,7 +17,7 @@
       ansible.builtin.lineinfile:
         path: /tmp/lineinfile.file
         regexp: '^learn'
-        state: absent
+        line: 'HELLLLLLLLLLLLLLLL'
 
 
 
