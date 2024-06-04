@@ -10,6 +10,6 @@
     - name: lineinfile task
       ansible.builtin.lineinfile:
         path:  /tmp/lineinfile.file
-        line: '^learn'
+        regexp: '^learn'
         state: absent
 
