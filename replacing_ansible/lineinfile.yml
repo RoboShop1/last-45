@@ -17,7 +17,8 @@
       ansible.builtin.lineinfile:
         path: /tmp/lineinfile.file
         regexp: '^linux'
-        line: 'HELLLLLLLLLLLLLLLL'
+        #line: 'HELLLLLLLLLLLLLLLL'
+        state: absent
 
 
 
