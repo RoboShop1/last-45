@@ -11,5 +11,5 @@
       ansible.builtin.lineinfile:
         path:  /tmp/lineinfile.file
         regexp: '^learn'
-        state: absent
+        line: "This is new line added in second place"
 
