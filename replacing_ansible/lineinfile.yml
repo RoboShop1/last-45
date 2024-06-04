@@ -7,16 +7,16 @@
         src: replace.file
         dest: /tmp/lineinfile.file
 
-    - name: lineinfile task
-      ansible.builtin.lineinfile:
-        path:  /tmp/lineinfile.file
-        regexp: '^learn'
-        line: "This is new line added in second place"
+#    - name: lineinfile task
+#      ansible.builtin.lineinfile:
+#        path:  /tmp/lineinfile.file
+#        regexp: '^learn'
+#        line: "This is new line added in second place"
 
     - name: lineinfile task
       ansible.builtin.lineinfile:
         path: /tmp/lineinfile.file
-        regexp: '^linux linux which one you choose.'
+        regexp: 'linux linux which one you choose.'
         line: 'LINUX'
 
 
