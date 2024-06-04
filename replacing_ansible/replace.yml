@@ -12,7 +12,7 @@
         path: /tmp/replace.file
         regexp: "^linux"
         replace: "LINUX"
-        before: "^learn.*"
+        before: "learn [*]"
 
 
  #
