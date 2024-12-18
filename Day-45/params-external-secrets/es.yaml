@@ -11,3 +11,16 @@ spec:
     name: example-sync
   dataFrom:
     - prefix: dev.*
+
+---
+apiVersion: externalsecrets.io/v1alpha1
+kind: ExternalSecret
+metadata:
+  name: my-app-secrets
+spec:
+  secretStoreRef:
+    name: team-b-store  # Refers to the SecretStore resource (defined in the previous step)
+  target:
+    name: my-app-secret  # The name of the Kubernetes secret to be created
+  dataFrom:
+    - prefix: /dev.*/  # Pull all parameters under the path "/my-app/"
