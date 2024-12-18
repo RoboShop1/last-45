@@ -19,7 +19,8 @@ metadata:
   name: my-app-secrets
 spec:
   secretStoreRef:
-    name: team-b-store  # Refers to the SecretStore resource (defined in the previous step)
+    name: team-b-store
+    kind: SecretStore # Refers to the SecretStore resource (defined in the previous step)
   target:
     name: my-app-secret  # The name of the Kubernetes secret to be created
   dataFrom:
