@@ -19,7 +19,7 @@ resource "aws_instance" "main" {
   }
 }
 
-resource "aws_route53_record" "main" {
+resource "aws_route53_record" "main1" {
   for_each = var.instances
   name    = "${lookup(aws_instance.main,each.value["private_ip"],null)}"
   type    = "A"
