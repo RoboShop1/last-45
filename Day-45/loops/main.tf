@@ -9,21 +9,26 @@ variable "instances" {
     frontend = {}
   }
 }
+
+variable "in_list" {
+  default = ["db","cart","frontend"]
+}
+
 resource "aws_instance" "main" {
-  for_each = var.instances
+  count = length(var.in_list)
   ami = "ami-01816d07b1128cd2d"
   instance_type = "t2.micro"
 
   tags = {
-    Name = each.key
+    Name = element(var.in_list,count.index)
   }
 }
 
 resource "aws_route53_record" "main" {
-  for_each =  var.instances
+  count   = length(aws_instance.main)
   zone_id = "Z0144525QEQQSOE8RRNR"
-  name    = each.key
+  name    = lement(var.in_list,count.index)
   type    = "A"
   ttl     = 300
-  records = [lookup(lookup(aws_instance.main,each.key,null),"private_ip",null)]
+  records = [aws_instance.main[count.index]["private_ip"]]
 }
