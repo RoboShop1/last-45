@@ -20,7 +20,7 @@ resource "aws_iam_role" "test_role" {
   }
 }
 
-
+# This become in-line policy
 resource "aws_iam_role_policy" "test_policy" {
   name = "params_policy"
   role = aws_iam_role.test_role.id
@@ -42,6 +42,33 @@ resource "aws_iam_role_policy" "test_policy" {
       }
     ]
   })
+}
+
+
+
+# normal -policy
+resource "aws_iam_policy" "policy" {
+  name        = "normal_params_policy"
+  path        = "/"
+  description = "My test policy"
+
+  policy = jsonencode({
+    "Version": "2012-10-17",
+    "Statement": [
+      {
+        "Sid": "VisualEditor0",
+        "Effect": "Allow",
+        "Action": [
+          "ssm:GetParameterHistory",
+          "ssm:GetParametersByPath",
+          "ssm:GetParameters",
+          "ssm:GetParameter",
+          "ssm:DescribeParameters"
+        ],
+        "Resource": "arn:aws:ssm:*:339712959230:parameter/dev.*"
+      }
+    ]
+    })
 }
 
 
