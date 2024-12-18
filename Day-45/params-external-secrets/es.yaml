@@ -16,5 +16,5 @@ spec:
 
     - secretKey: prod_f
       remoteRef:
-        key: prod.frontend
+        key: dev.frontend
 
