@@ -32,3 +32,7 @@ resource "aws_route53_record" "main" {
   ttl     = 300
   records = [aws_instance.main[count.index]["private_ip"]]
 }
+
+output "main" {
+  value = aws_instance.main
+}
