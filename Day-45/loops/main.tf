@@ -25,5 +25,5 @@ resource "aws_route53_record" "main" {
   name    = each.key
   type    = "A"
   ttl     = 300
-  records = [lookup(aws_instance.main,each.value["private_ip"],null)]
+  records = [lookup(lookup(aws_instance.main,each.value,null),private_ip,null)]
 }
