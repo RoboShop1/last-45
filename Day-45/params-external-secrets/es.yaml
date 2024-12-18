@@ -12,5 +12,4 @@ spec:
   data:
     - secretKey: tags
       remoteRef:
-        metadataPolicy: Fetch
         key: dev
