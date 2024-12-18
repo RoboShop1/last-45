@@ -10,6 +10,6 @@ spec:
   target:
     name: example-sync
   data:
-    - secretKey: tags
+    - secretKey: my_name
       remoteRef:
-        key: dev
+        key: dev.frontend
