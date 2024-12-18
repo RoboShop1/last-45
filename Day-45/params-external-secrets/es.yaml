@@ -9,5 +9,5 @@ spec:
     kind: SecretStore
   target:
     name: example-sync
-  dataFrom:
+  data:
     - secretKey: dev.*
