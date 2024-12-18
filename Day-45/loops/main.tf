@@ -21,7 +21,7 @@ resource "aws_instance" "main" {
 
 resource "aws_route53_record" "main" {
   for_each = var.instances
-  name    = "${lookup(aws_instance.main,each.key["private_ip"],null)}"
+  name    = "${lookup(aws_instance.main,each.value["private_ip"],null)}"
   type    = "A"
   zone_id = "Z0144525QEQQSOE8RRNR"
 }
