@@ -30,7 +30,7 @@ resource "aws_route53_record" "main" {
   name    = element(var.in_list,count.index)
   type    = "A"
   ttl     = 300
-  records = [aws_instance.main[count.index]["private_ip"]]
+  records = [element(aws_instance.main,count.index)["private_ip"]]
 }
 
 output "main" {
