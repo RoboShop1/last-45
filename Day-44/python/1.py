@@ -1,7 +1,7 @@
 import requests
 
 # Define the API endpoint
-url = "https://jsonplaceholder.typicode.com/posts"
+url = "https://reqbin.com/echo/get/json"
 
 # Make a GET request
 response = requests.get(url)
