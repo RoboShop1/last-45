@@ -9,7 +9,7 @@ print(response["Reservations"])
 
 for i in response["Reservations"]:
     for j in i["Instances"]:
-        print(f"InstanceID = {j["InstanceId"]}")
+        print(f"InstanceID = {j['InstanceId']}" )
         print("==========")
 
 
