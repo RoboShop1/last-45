@@ -1,4 +1,5 @@
 import boto3
+import time
 
 
 ec2_client = boto3.client(service_name="ec2",region_name="us-east-1")
@@ -20,8 +21,19 @@ response = ec2_client.run_instances(
     )
 
 
-for i in response["Instances"]:
-    print
+while True:
+    for i in response["Instances"]:
+           if i["State"]["Name"] == "running":
+               state = "running"
+               break
+    time.sleep(5)
+    if state == "running":
+        for i in response["Instances"]:
+            print(f"Instance-Id = {i['InstanceId']}")
+            print(f"Instance-Public = {i['PublicDnsName']}")
+            print("============================")
+        break
+
 
 
 
