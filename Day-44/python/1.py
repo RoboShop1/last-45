@@ -1,18 +1,19 @@
-import requests
+import sys
 
-# Define the API endpoint
-url = "https://reqbin.com/echo/get/json"
 
-# Make a GET request
-response = requests.get(url)
+def name(one):
+    print(f"Name is {one}")
 
-print(response.json())
 
-# Check if the request was successful
-# if response.status_code == 200:
-#     # Parse the JSON response
-#     data = response.json()
-#     print(data)
-# else:
-#     print(f"Failed to retrieve data: {response.status_code}")
+try:
+    name(12)
+    status = True
+except:
+    print("except block is executed")
+    status = False
+if not status:
+    print("we get the error")
+
+
+
 
