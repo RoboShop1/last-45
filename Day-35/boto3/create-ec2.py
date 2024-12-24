@@ -20,12 +20,14 @@ response = ec2_client.run_instances(
     }]
     )
 
-
+state = ""
 while True:
     for i in response["Instances"]:
            if i["State"]["Name"] == "running":
                state = "running"
+               print("Yes this condition is executed")
                break
+    print("Sleep is executed")
     time.sleep(5)
     if state == "running":
         for i in response["Instances"]:
