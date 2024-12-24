@@ -20,7 +20,8 @@ response = ec2_client.run_instances(
     )
 
 
-print(response)
+for i in response["Instances"]:
+    print
 
 
 
