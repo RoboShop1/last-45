@@ -9,6 +9,7 @@ response = ec2_client.describe_instances()
 for i in response["Reservations"]:
     for j in i["Instances"]:
         print(f"InstanceID = {j['InstanceId']}" )
+        print(f"InstanceState = {j['State']['Name']}")
         print("==========")
 
 
