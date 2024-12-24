@@ -8,5 +8,5 @@ print(response["Reservations"])
 
 
 for i in response["Reservations"]:
-    print(i["Instances"])
-    print("================")
+    for j in i["Instances"]:
+        print(j)
