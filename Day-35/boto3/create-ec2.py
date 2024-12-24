@@ -23,6 +23,7 @@ response = ec2_client.run_instances(
 state = ""
 while True:
     for i in response["Instances"]:
+        print("weather for is executed")
         if i["State"]["Name"] == "running":
            state = "running"
            print("Yes this condition state is executed")
