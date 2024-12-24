@@ -13,7 +13,7 @@ response = ec2_client.run_instances(
     TagSpecifications=[{
         'ResourceType': 'instance',
         'Tags': [{
-            'Key': 'Name'
+            'Key' 'Name',
             'Value': 'boto3'
         }]
     }]
