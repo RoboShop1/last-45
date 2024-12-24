@@ -10,6 +10,7 @@ for i in response["Reservations"]:
     for j in i["Instances"]:
         print(f"InstanceID = {j['InstanceId']}" )
         print(f"InstanceState = {j['State']['Name']}")
+        print(f"InstanceName = {j['Tags'][0]['Value']}")
         print("==========")
 
 
