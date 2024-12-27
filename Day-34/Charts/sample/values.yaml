@@ -1,0 +1,5 @@
+pod:
+  name: nginx
+  image: chaitu1812/alpine
+  imageTag: v1.0.0
+  containerPort: 80

@@ -1,0 +1,44 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Generated schema for Root",
+  "type": "object",
+  "properties": {
+    "pod": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "image": {
+          "type": "string"
+        },
+        "imageTag": {
+          "type": "string"
+        },
+        "containerPort": {
+          "type": "number",
+          "minimum": 8080,
+          "maximum": 8085
+
+        }
+      },
+      "required": [
+        "name",
+        "image",
+        "imageTag",
+        "containerPort"
+      ]
+    },
+    "service": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        }
+      }
+    }
+  },
+  "required": [
+    "pod"
+  ]
+}

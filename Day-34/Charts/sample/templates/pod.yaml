@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name : {{ .Values.pod.name }}
+spec:
+  containers:
+    - name: {{ .Values.name }}
+      image: {{ .Values.pod.image }}:{{ .Values.pod.imageTag }}
+      ports:
+        - containerPort: {{ .Values.pod.containerPort }}
