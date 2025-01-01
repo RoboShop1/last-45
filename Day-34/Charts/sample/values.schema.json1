@@ -33,12 +33,17 @@
       "type": "object",
       "properties": {
         "name": {
-          "type": "string"
+          "type": "string",
+          "pattern": "^[a-z]{5}[1-5]{2}$"
         }
-      }
+      },
+      "required": [
+        "name"
+      ]
     }
   },
   "required": [
-    "pod"
+    "pod",
+    "service"
   ]
 }

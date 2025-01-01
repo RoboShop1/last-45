@@ -2,4 +2,16 @@ pod:
   name: nginx
   image: chaitu1812/alpine
   imageTag: v1.0.0
-  containerPort: 80
+  containerPort: 8081
+
+service:
+  name: apprt51
+
+
+labels:
+  app: nginx
+  app1: nginx1
+  app2: nginx2
+
+
+name: "sam1"

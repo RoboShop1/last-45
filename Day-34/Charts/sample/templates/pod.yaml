@@ -1,10 +1,29 @@
+{{- if eq .Values.name "sam" }}
 apiVersion: v1
 kind: Pod
 metadata:
   name : {{ .Values.pod.name }}
+  labels:
+    {{- range $key,$value := .Values.labels }}
+    {{- $key | nindent 4 }}: {{ $value }}
+    {{- end }}
+  annotations:
+    annotation: good
 spec:
   containers:
     - name: {{ .Values.name }}
       image: {{ .Values.pod.image }}:{{ .Values.pod.imageTag }}
       ports:
         - containerPort: {{ .Values.pod.containerPort }}
+{{- else }}
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx
+spec:
+  containers:
+    - name: nginx
+      image: nginx:1.14.2
+      ports:
+        - containerPort: 80
+  {{- end }}
