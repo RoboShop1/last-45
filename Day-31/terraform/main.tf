@@ -17,5 +17,5 @@ module "vpc-dev" {
 }
 
 output "maia" {
-  value = module.vpc-dev.public.tags.Name
+  value = module.vpc-dev.public.*.tags.Name
 }
