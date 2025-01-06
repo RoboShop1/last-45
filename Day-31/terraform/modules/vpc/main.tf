@@ -13,29 +13,29 @@ resource "aws_internet_gateway" "igw" {
   }
 }
 
-resource "aws_eip" "eip"   {
-  count      = count(var.public_subnets)
-  depends_on = [aws_internet_gateway.igw]
-  domain     = "vpc"
-
-  tags = {
-    Name = "${aws_subnet.public-subnets[count.index].tags.Name}-eip"
-  }
-}
-
-resource "aws_nat_gateway" "nat-gw" {
-
-  count = length(var.public_subnets)
-
-  allocation_id = element(aws_eip.eip.*.id,count.index )
-  subnet_id     = element(aws_subnet.public-subnets.*.id,count.index)
-
-  tags = {
-    Name = "${aws_subnet.public-subnets[count.index].tags.Name}-nat-gw"
-  }
-
-  depends_on = [aws_internet_gateway.igw]
-}
+# resource "aws_eip" "eip"   {
+#   count      = count(var.public_subnets)
+#   depends_on = [aws_internet_gateway.igw]
+#   domain     = "vpc"
+#
+#   tags = {
+#     Name = "${aws_subnet.public-subnets[count.index].tags.Name}-eip"
+#   }
+# }
+#
+# resource "aws_nat_gateway" "nat-gw" {
+#
+#   count = length(var.public_subnets)
+#
+#   allocation_id = element(aws_eip.eip.*.id,count.index )
+#   subnet_id     = element(aws_subnet.public-subnets.*.id,count.index)
+#
+#   tags = {
+#     Name = "${aws_subnet.public-subnets[count.index].tags.Name}-nat-gw"
+#   }
+#
+#   depends_on = [aws_internet_gateway.igw]
+# }
 
 resource "aws_subnet" "public-subnets" {
   count      = length(var.public_subnets)
