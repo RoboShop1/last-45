@@ -15,3 +15,7 @@ module "vpc-dev" {
   db_azs        = ["us-east-1a","us-east-1b"]
 
 }
+
+output "maia" {
+  value = module.vpc-dev.public
+}
