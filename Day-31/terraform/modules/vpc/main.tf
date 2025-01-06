@@ -143,9 +143,12 @@ resource "aws_route_table" "db-rt" {
     Name = "${var.env}-db-rt"
   }
 }
+
 resource "aws_route_table_association" "db-rta" {
   count          = length(aws_subnet.db-subnets)
+
   subnet_id      = aws_subnet.db-subnets.*.id[count.index]
+
   route_table_id = aws_route_table.db-rt.id
 }
 
