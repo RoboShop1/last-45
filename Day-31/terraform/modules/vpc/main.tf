@@ -14,7 +14,7 @@ resource "aws_internet_gateway" "igw" {
 }
 
 resource "aws_eip" "eip"   {
-  count      = count(var.public_subnets)
+  count      = length(var.public_subnets)
   depends_on = [aws_internet_gateway.igw]
   domain     = "vpc"
 
@@ -61,7 +61,7 @@ resource "aws_route_table" "public-rt" {
 
 resource "aws_route_table_association" "public-rta" {
   count          = length(aws_subnet.public-subnets)
-  subnet_id      = aws_subnet.public-subnets.*.id[0]
+  subnet_id      = aws_subnet.public-subnets.*.id[count.index]
   route_table_id = aws_route_table.public-rt.id
 }
 
@@ -88,7 +88,7 @@ resource "aws_route_table" "web-rt" {
 
 resource "aws_route_table_association" "web-rta" {
   count          = length(aws_subnet.web-subnets)
-  subnet_id      = aws_subnet.web-subnets.*.id[0]
+  subnet_id      = aws_subnet.web-subnets.*.id[count.index]
   route_table_id = aws_route_table.web-rt.id
 }
 
@@ -115,7 +115,7 @@ resource "aws_route_table" "app-rt" {
 
 resource "aws_route_table_association" "app-rta" {
   count          = length(aws_subnet.app-subnets)
-  subnet_id      = aws_subnet.app-subnets.*.id[0]
+  subnet_id      = aws_subnet.app-subnets.*.id[count.index]
   route_table_id = aws_route_table.app-rt.id
 }
 
@@ -145,7 +145,7 @@ resource "aws_route_table" "db-rt" {
 }
 resource "aws_route_table_association" "db-rta" {
   count          = length(aws_subnet.db-subnets)
-  subnet_id      = aws_subnet.db-subnets.*.id[0]
+  subnet_id      = aws_subnet.db-subnets.*.id[count.index]
   route_table_id = aws_route_table.db-rt.id
 }
 
