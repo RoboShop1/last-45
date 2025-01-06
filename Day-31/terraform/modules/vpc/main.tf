@@ -148,3 +148,8 @@ resource "aws_route_table_association" "db-rta" {
   subnet_id      = aws_subnet.db-subnets.*.id[0]
   route_table_id = aws_route_table.db-rt.id
 }
+
+
+output "public" {
+  value = aws_subnet.public-subnets
+}
