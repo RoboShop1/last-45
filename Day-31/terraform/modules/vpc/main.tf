@@ -54,6 +54,12 @@ resource "aws_subnet" "public-subnets" {
 resource "aws_route_table" "public-rt" {
   vpc_id = aws_vpc.main.id
 
+  route {
+    cidr_block = "0.0.0.0/0"
+    gateway_id = aws_internet_gateway.igw.id
+  }
+
+
   tags = {
     Name = "${var.env}-public-rt"
   }
@@ -79,6 +85,11 @@ resource "aws_subnet" "web-subnets" {
 
 resource "aws_route_table" "web-rt" {
   vpc_id = aws_vpc.main.id
+
+  route {
+    cidr_block = "0.0.0.0/0"
+    nat_gateway_id = aws_nat_gateway.nat-gw[1].id
+  }
 
   tags = {
     Name = "${var.env}-web-rt"
@@ -106,6 +117,12 @@ resource "aws_subnet" "app-subnets" {
 
 resource "aws_route_table" "app-rt" {
   vpc_id = aws_vpc.main.id
+
+  route {
+    cidr_block = "0.0.0.0/0"
+    nat_gateway_id = aws_nat_gateway.nat-gw[0].id
+  }
+
 
   tags = {
     Name = "${var.env}-app-rt"
@@ -138,6 +155,11 @@ resource "aws_subnet" "db-subnets" {
 
 resource "aws_route_table" "db-rt" {
   vpc_id = aws_vpc.main.id
+
+  route {
+    cidr_block = "0.0.0.0/0"
+    nat_gateway_id = aws_nat_gateway.nat-gw[0].id
+  }
 
   tags = {
     Name = "${var.env}-db-rt"
