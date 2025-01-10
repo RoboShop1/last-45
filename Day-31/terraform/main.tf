@@ -27,9 +27,17 @@ module "vpc-dev" {
 #   value = module.vpc-dev
 # }
 
-output "subnets_names" {
-  value = { for i,k in module.vpc-dev: i => k.*.id if can(regex(".*subnets",i))}
+locals {
+  subnets = { for i,k in module.vpc-dev: i => k.*.id if can(regex(".*subnets",i))}
 }
+
+output "main" {
+  value = local.subnets
+}
+
+# output "subnets_names" {
+#   value = { for i,k in module.vpc-dev: i => k.*.id if can(regex(".*subnets",i))}
+# }
 
 
 
