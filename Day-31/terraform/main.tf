@@ -16,13 +16,16 @@ module "vpc-dev" {
 
 }
 
-#
-# module "ec2" {
-#   source      = "./modules/ec2"
-#   subnet_name = ""
-#   subnet_id   = ""
-#
-# }
+
+module "ec2" {
+  for_each = local.subnets
+
+  source      = "./modules/ec2"
+  subnet_name = "${replace(each.key,"s","")}"
+  subnet_id   = element(each.value,0)
+}
+
+
 # output "vpc_main_details" {
 #   value = module.vpc-dev
 # }
