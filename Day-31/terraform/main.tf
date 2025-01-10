@@ -28,7 +28,7 @@ module "vpc-dev" {
 # }
 
 output "subnets_names" {
-  value = [ for i in module.vpc-dev: i.public_subnets  ]
+  value = [ for i in module.vpc-dev: i  ]
 }
 
 
