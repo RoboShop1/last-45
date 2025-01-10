@@ -14,24 +14,24 @@ resource "aws_internet_gateway" "igw" {
 }
 
 resource "aws_eip" "eip"   {
-  count      = length(var.public_subnets)
+  # count      = length(var.public_subnets)
   depends_on = [aws_internet_gateway.igw]
   domain     = "vpc"
 
   tags = {
-    Name = "${aws_subnet.public-subnets[count.index].tags.Name}-eip"
+    Name = "aws-eip"
   }
 }
 
 resource "aws_nat_gateway" "nat-gw" {
 
-  count = length(var.public_subnets)
+  #count = length(var.public_subnets)
 
   allocation_id = element(aws_eip.eip.*.id,count.index )
   subnet_id     = element(aws_subnet.public-subnets.*.id,count.index)
 
   tags = {
-    Name = "${aws_subnet.public-subnets[count.index].tags.Name}-nat-gw"
+    Name = "aws-nat-gw"
   }
 
   depends_on = [aws_internet_gateway.igw]
@@ -88,7 +88,7 @@ resource "aws_route_table" "web-rt" {
 
   route {
     cidr_block = "0.0.0.0/0"
-    nat_gateway_id = aws_nat_gateway.nat-gw[1].id
+    nat_gateway_id = aws_nat_gateway.nat-gw.id
   }
 
   tags = {
@@ -120,7 +120,7 @@ resource "aws_route_table" "app-rt" {
 
   route {
     cidr_block = "0.0.0.0/0"
-    nat_gateway_id = aws_nat_gateway.nat-gw[0].id
+    nat_gateway_id = aws_nat_gateway.nat-gw.id
   }
 
 
@@ -158,7 +158,7 @@ resource "aws_route_table" "db-rt" {
 
   route {
     cidr_block = "0.0.0.0/0"
-    nat_gateway_id = aws_nat_gateway.nat-gw[0].id
+    nat_gateway_id = aws_nat_gateway.nat-gw.id
   }
 
   tags = {
