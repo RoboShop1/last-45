@@ -28,7 +28,7 @@ output "vpc_main_details" {
 }
 
 output "subnets_names" {
-  value = [ for i,k in module.vpc-dev: i ]
+  value = [ for i,k in module.vpc-dev: can(regex(".*subnets",i))]
 }
 
 
