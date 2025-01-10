@@ -23,9 +23,9 @@ module "vpc-dev" {
 #   subnet_id   = ""
 #
 # }
-output "vpc_main_details" {
-  value = module.vpc-dev
-}
+# output "vpc_main_details" {
+#   value = module.vpc-dev
+# }
 
 output "subnets_names" {
   value = [ for i,k in module.vpc-dev: can(regex(".*subnets",i))]
