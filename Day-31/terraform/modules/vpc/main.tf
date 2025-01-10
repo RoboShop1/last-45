@@ -27,8 +27,8 @@ resource "aws_nat_gateway" "nat-gw" {
 
   #count = length(var.public_subnets)
 
-  allocation_id = element(aws_eip.eip.*.id,count.index )
-  subnet_id     = element(aws_subnet.public-subnets.*.id,count.index)
+  allocation_id = aws_eip.eip.id
+  subnet_id     = element(aws_subnet.public-subnets.*.id,0)
 
   tags = {
     Name = "aws-nat-gw"
@@ -174,7 +174,3 @@ resource "aws_route_table_association" "db-rta" {
   route_table_id = aws_route_table.db-rt.id
 }
 
-
-output "public" {
-  value = aws_subnet.public-subnets
-}
