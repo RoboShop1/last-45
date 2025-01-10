@@ -1,7 +1,7 @@
 
 resource "aws_instance" "main" {
 
-  ami = "i-0a6240f361b10ab7b"
+  ami = "ami-0a6240f361b10ab7b"
   instance_type = "t2.micro"
   subnet_id = var.subnet_id
 
