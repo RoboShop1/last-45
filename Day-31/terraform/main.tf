@@ -16,7 +16,28 @@ module "vpc-dev" {
 
 }
 
-
+#
+# module "ec2" {
+#   source      = "./modules/ec2"
+#   subnet_name = ""
+#   subnet_id   = ""
+#
+# }
 output "vpc_main_details" {
   value = module.vpc-dev
 }
+
+output "subnets_names" {
+  value = [ for i,k in module.vpc-dev: i ]
+}
+
+
+
+
+#   output "for_directive_index_if_strip" {
+#   value = <<EOF
+# %{~ for i, name in var.names ~}
+# ${name}%{ if i < length(var.names) - 1 }, %{ endif }
+# %{~ endfor ~}
+# EOF
+# }
