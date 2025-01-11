@@ -3,7 +3,7 @@ data "aws_vpc" "default" {
 }
 
 variable "sg_ingress" {
-  default = [22,8080,8081]
+  default = [22,8080,8081,8090]
 }
 
 resource "aws_security_group" "allow_tls" {
@@ -16,8 +16,8 @@ resource "aws_security_group" "allow_tls" {
   dynamic "ingress" {
     for_each = var.sg_ingress
     content {
-      from_port        = ingress.value
-      to_port          = ingress.value
+      from_port        = ingress.key
+      to_port          = ingress.key
       protocol         = "tcp"
       cidr_blocks      = ["0.0.0.0/0"]
     }
