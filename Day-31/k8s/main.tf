@@ -53,3 +53,18 @@ resource "aws_eks_pod_identity_association" "external-poid" {
 
 
 
+
+resource "helm_release" "nginx-ingress" {
+  depends_on = [aws_eks_addon.eks-pod-identity]
+
+  name       = "nginx-ingress"
+  repository = "https://kubernetes.github.io/ingress-nginx"
+  chart      = "ingress-nginx"
+  namespace = "external-dns"
+  create_namespace = true
+  atomic =  true
+
+}
+
+
+
