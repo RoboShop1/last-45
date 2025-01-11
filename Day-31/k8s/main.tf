@@ -38,7 +38,7 @@ resource "helm_release" "external-dns" {
   for_each = var.external_dns_values
    content {
     name = set.value.name
-    vlaue = set.value.value
+    value = set.value.value
   }
 }
 }
