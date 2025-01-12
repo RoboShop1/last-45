@@ -60,13 +60,13 @@ resource "aws_launch_template" "foo" {
 
   image_id = "ami-0b4f379183e5706b9"
 
-  instance_market_options {
-    market_type = "spot"
-    spot_options {
-      instance_interruption_behavior = "stop"
-      spot_instance_type             = "persistent"
-    }
-  }
+  # instance_market_options {
+  #   market_type = "spot"
+  #   spot_options {
+  #     instance_interruption_behavior = "stop"
+  #     spot_instance_type             = "persistent"
+  #   }
+  # }
 
   instance_type = "t3.micro"
 
