@@ -78,5 +78,6 @@ resource "aws_launch_template" "foo" {
 resource "aws_instance" "main" {
   launch_template {
     id = aws_launch_template.foo.id
+    version = "$Default"
   }
 }
