@@ -49,6 +49,15 @@ resource "aws_launch_template" "foo" {
     }
   }
 
+  block_device_mappings {
+    device_name = "/dev/sdf1"
+
+    ebs {
+      volume_size = 5
+      delete_on_termination = true
+    }
+  }
+
   image_id = "ami-0b4f379183e5706b9"
 
   instance_market_options {
