@@ -20,7 +20,7 @@ source "amazon-ebs" "example" {
   #ssh_password            = "DevOps321"
   ami_name                = "terraform-packer-ami"
   associate_public_ip_address = true
-  iam_instance_profile = "arn:aws:iam::339712959230:instance-profile/terraform_role"
+  iam_instance_profile = "terraform_role"
   force_delete_snapshot = true
 
   force_deregister = true
