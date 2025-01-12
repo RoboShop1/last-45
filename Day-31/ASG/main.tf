@@ -48,7 +48,6 @@ resource "aws_launch_template" "foo" {
     }
   }
 
-
   image_id = "ami-0b4f379183e5706b9"
 
   instance_market_options {
@@ -60,11 +59,6 @@ resource "aws_launch_template" "foo" {
   }
 
   instance_type = "t3.micro"
-
-
-  network_interfaces {
-    associate_public_ip_address = true
-  }
 
 
   vpc_security_group_ids = [aws_security_group.allow_tls.id]
