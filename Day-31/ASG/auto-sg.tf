@@ -13,4 +13,17 @@ resource "aws_autoscaling_group" "example" {
       }
     }
   }
+  tag {
+    key                 = "Name"
+    value               = "${var.component}-${var.env}"
+    propagate_at_launch = true
+  }
+}
+
+variable "component" {
+  default = "frontend"
+}
+
+variable "env" {
+  default = "dev"
 }
