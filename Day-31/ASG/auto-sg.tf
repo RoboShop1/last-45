@@ -11,6 +11,9 @@ resource "aws_autoscaling_group" "example" {
         launch_template_id = aws_launch_template.foo.id
         version = "$Latest"
       }
+      override {
+        instance_type = "t3.small"
+      }
     }
   }
   tag {
