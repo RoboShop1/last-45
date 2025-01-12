@@ -41,6 +41,7 @@ build {
       "sudo yum install nginx -y",
       "sudo systemctl start nginx",
       "sudo systemctl enable nginx",
+      "sudo echo 'sample texte' > /usr/share/nginx/html/index1.html",
       "sudo aws ssm get-parameter --name dev.catalogue --region us-east-1 --query 'Parameter.Value'  > /tmp/get.text"
     ]
   }
