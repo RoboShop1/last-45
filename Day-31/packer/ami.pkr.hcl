@@ -23,6 +23,8 @@ source "amazon-ebs" "example" {
 
   force_delete_snapshot = true
 
+  force_deregister = true
+
   tags = {
     Name        = "TerraformPackerAMI"
     Environment = "Dev"
