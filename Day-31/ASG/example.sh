@@ -6,8 +6,8 @@ sudo yum install nginx -y  &>> $LOG_FILE
 
 sudo rm -rf /usr/share/nginx/html/*  &>> $LOG_FILE
 
-sudo echo "<h1> This is server1 </h1>" > /usr/share/nginx/html/index.html
-sudo echo "<h1> checking version2 </h1>" > /usr/share/nginx/html/index.html
+sudo echo "<h1> This is server1 </h1>"   > /usr/share/nginx/html/index.html
+sudo echo "<h1> checking version2 </h1>" >> /usr/share/nginx/html/index.html
 
 
 sudo systemctl start nginx &>> $LOG_FILE
