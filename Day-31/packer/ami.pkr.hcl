@@ -16,7 +16,7 @@ source "amazon-ebs" "example" {
   source_ami              = "ami-0b4f379183e5706b9"  # Replace with a valid base AMI ID
   instance_type           = "t3.micro"
   ssh_username            = "centos"
-  ssh_password            = "DevOps321"
+  #ssh_password            = "DevOps321"
   ami_name                = "terraform-packer-ami"
   associate_public_ip_address = true
   tags = {
