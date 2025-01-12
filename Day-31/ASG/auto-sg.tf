@@ -1,4 +1,5 @@
 resource "aws_autoscaling_group" "example" {
+  name               = "sample-auto"
   availability_zones = ["us-east-1a","us-east-1b"]
   desired_capacity   = 3
   max_size           = 6
