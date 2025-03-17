@@ -1,3 +1,7 @@
 import os
 
-print(os.path.exists("/tmp/example.txt"))
+
+try:
+    print(os.path.exists("/tmp/example.txt1"))
+except:
+    print("File is not exists")
