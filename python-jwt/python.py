@@ -7,7 +7,7 @@ SECRET_KEY = "chaitu"
 
 payload = {
     "user_id": 123,
-    "role": "admin"
+    "role": "admin1"
 }
 
 token = jwt.encode(payload, SECRET_KEY, algorithm="HS256")
