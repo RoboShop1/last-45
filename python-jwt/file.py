@@ -1,4 +1,5 @@
 import csv
 
 with open("/tmp/1.csv","r") as file:
-    print(csv.reader(file))
+    for i in csv.reader(file):
+        print(i)
