@@ -1,8 +1,3 @@
-import csv
-
-with open("/tmp/1.csv","r") as file:
-        reader = csv.reader(file)  # Create a CSV reader object
-
-        # Iterate through each row and print
-        for row in reader:
-             print(", ".join(row))
+with open("/tmp/2.txt", w) as file:
+    file.write("This is one")
+    file.write("This is one")
