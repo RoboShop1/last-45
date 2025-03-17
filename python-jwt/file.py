@@ -1,7 +1,4 @@
-import os
+import csv
 
-
-try:
-    os.path.exists("/tmp/example.txt1")
-except e:
-    print("File is not exists {e}")
+with open("/tmp/1.csv","r") as file:
+    print(csv.reader(file))
