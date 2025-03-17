@@ -5,4 +5,4 @@ with open("/tmp/1.csv","r") as file:
 
         # Iterate through each row and print
         for row in reader:
-            print(list(row))
+             print(", ".join(row))
