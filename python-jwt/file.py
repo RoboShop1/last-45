@@ -1,2 +1,3 @@
 with open("/tmp/example.txt", "r") as file:
-    print(file.readlines())
+    for i in file.readlines():
+        print(i)
