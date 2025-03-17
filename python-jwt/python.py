@@ -17,6 +17,8 @@ print(token)
 
 print("=======")
 
+SECRET_KEY = "chaitu1"
+
 decoded_payload = jwt.decode(token, SECRET_KEY, algorithms=["HS256"])
 
 print(decoded_payload)
