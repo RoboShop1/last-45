@@ -1,3 +1,3 @@
-with open('/tmp/example.txt', 'a') as file:
-    file.write("This is chaithanya-5\n")
-    file.write("This is chaithanyas-6\n")
+file_list=["one\n","two\n","threeee\n"]
+with open('/tmp/example.txt', 'w') as file:
+    file.writelines(file_list)
