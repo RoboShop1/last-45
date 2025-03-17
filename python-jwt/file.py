@@ -1,2 +1,3 @@
-with open('/tmp/example.txt', 'r') as file:
-    print(file.read())
+with open('/tmp/example.txt', 'w') as file:
+    file.write("This is chaithanya")
+    file.write("This is chaithanyas-1")
