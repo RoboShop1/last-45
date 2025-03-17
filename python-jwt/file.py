@@ -1,3 +1,3 @@
-file_list=["one\n","two\n","threeee\n"]
-with open('/tmp/example.txt', 'w') as file:
-    file.writelines(file_list)
+import os
+
+print(os.path.exists("/tmp/example.txt"))
