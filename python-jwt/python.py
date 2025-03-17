@@ -15,3 +15,6 @@ token = jwt.encode(payload, SECRET_KEY, algorithm="HS256")
 
 print(token)
 
+print("=======")
+
+decoded_payload = jwt.decode(token, SECRET_KEY, algorithms=["HS256"])
