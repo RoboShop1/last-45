@@ -1,4 +1,4 @@
 try:
-    print("name",+,"chaitu")
-except:
-    print("lllll")
+    print(10/0)
+except Exception as msg:
+    print(f"{msg.__class__.__name__}")
