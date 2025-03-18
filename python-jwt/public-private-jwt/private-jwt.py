@@ -12,3 +12,5 @@ with open("/root/good", "r") as key_file:
     private_key = key_file.read()
 
 token = jwt.encode(payload, private_key, algorithm="RS256").decode("utf-8")
+
+print(token)
