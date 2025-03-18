@@ -1,7 +1,6 @@
 import jwt
-import datetime
 
-# Secret key (keep this safe!)
+
 SECRET_KEY = "chaitu"
 
 
@@ -9,21 +8,20 @@ payload = {
     "user_id": 123,
     "role": "admin1"
 }
+token_actual = jwt.encode(payload, SECRET_KEY, algorithm="HS256")
+
+print(token_actual)
 
 
+print("================")
 
-token = jwt.encode(payload, SECRET_KEY, algorithm="HS256")
+payload = {
+    "user_id": 123,
+    "role": "admin2"
+}
+
+token_tempered = jwt.encode(payload, SECRET_KEY, algorithm="HS256")
+
+decoded_payload = jwt.decode(token_tempered, SECRET_KEY, algorithms=["HS256"])
 
 
-
-print(token)
-
-print("=======")
-
-SECRET_KEY = "chaitu"
-
-
-
-decoded_payload = jwt.decode(token, SECRET_KEY, algorithms=["HS256"])
-
-print(decoded_payload)

@@ -1,3 +1,13 @@
-with open("/tmp/2.txt", "w") as file:
-    file.write("This is one\n")
-    file.write("This is one-1")
+import json
+
+try:
+    with open("1.json","r") as file:
+        data = json.load(file)
+except Exception as msg:
+    print(type(msg))
+
+else:
+    print(data)
+
+
+
