@@ -23,7 +23,7 @@ print(decoded_payload)
 print("=" *10)
 payload1 = {
     "user_id": 123,
-    "role": "admin2"
+    "role": "admin4"
 }
 payload_json = json.dumps(payload1, separators=(",", ":"))
 encoded_payload = base64.urlsafe_b64encode(payload_json.encode()).decode().rstrip("=")
