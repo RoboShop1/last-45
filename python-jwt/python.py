@@ -14,12 +14,14 @@ payload_json = json.dumps(payload, separators=(",", ":"))
 encoded_payload = base64.urlsafe_b64encode(payload_json.encode()).decode().rstrip("=")
 print("Encoded Payload:", encoded_payload)
 
-token_actual = jwt.encode(payload, SECRET_KEY, algorithm="HS256")
+token_actual = jwt.encode(payload, SECRET_KEY, algorithm="HS256").decode("utf-8")
 print(token_actual)
 decoded_payload = jwt.decode(token_actual, SECRET_KEY, algorithms=["HS256"])
 print(decoded_payload)
 
-
+'''
+// separate //
+'''
 print("=" *10)
 payload1 = {
     "user_id": 123,
