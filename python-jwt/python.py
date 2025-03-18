@@ -12,22 +12,9 @@ token_actual = jwt.encode(payload, SECRET_KEY, algorithm="HS256")
 
 print(token_actual)
 
-
-print("================")
-
-payload = {
-    "user_id": 123,
-    "role": "admin2"
-}
-token_tempered = jwt.encode(payload, SECRET_KEY, algorithm="HS256")
-
-print(token_tempered)
-
-print("============")
+decoded_payload = jwt.decode(token_actual, SECRET_KEY, algorithms=["HS256"])
 
 
-token_tempered = jwt.encode(payload, SECRET_KEY, algorithm="HS256")
 
-decoded_payload = jwt.decode(token_tempered, SECRET_KEY, algorithms=["HS256"])
 
 
