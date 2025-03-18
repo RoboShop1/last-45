@@ -4,7 +4,7 @@ import base64
 # Payload
 payload = {
     "user_id": 123,
-    "role": "admin1"
+    "role": "admin2"
 }
 
 # Convert to JSON string
