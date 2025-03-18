@@ -7,7 +7,7 @@ SECRET_KEY = "chaitu"
 
 payload = {
     "user_id": 123,
-    "role": "admin2"
+    "role": "admin1"
 }
 
 payload_json = json.dumps(payload, separators=(",", ":"))
