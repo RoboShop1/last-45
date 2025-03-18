@@ -19,6 +19,12 @@ payload = {
     "user_id": 123,
     "role": "admin2"
 }
+token_tempered = jwt.encode(payload, SECRET_KEY, algorithm="HS256")
+
+print(token_tempered)
+
+print("============")
+
 
 token_tempered = jwt.encode(payload, SECRET_KEY, algorithm="HS256")
 
